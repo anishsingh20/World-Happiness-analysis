@@ -96,7 +96,17 @@ cor.test(year_2015$Happiness.Score,year_2015$Economy..GDP.per.Capita.)
 #score of 0.78 which shows that there is a positive relation between both
 
 
+hchart(year_2015,hcaes(x = Happiness.Score, y = Economy..GDP.per.Capita.),type="point",color="black") %>% 
+  hc_add_theme(hc_theme_elementary()) %>% 
+    hc_title(text="Scatter plot of Happiness score and GDP per capita for ",align="center") %>% 
+  hc_subtitle(text="Year :2015",align="center")
+
 
 ```
+The scatter plot shows the postive relation between both the variabes.
+
 As we can notice above , we have a significant t-value form the t-test and the p-values are also relatively small and significant from the level of significane $\alpha$ , which means that the results are significant and we can reject Null-hypothesis $H_0$. So both the variables are related.
+
+
+
 

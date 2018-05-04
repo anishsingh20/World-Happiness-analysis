@@ -42,5 +42,16 @@ year_2016<-remove_col(year_2016,X,14)
 year_2017<-remove_col(year_2017,X,13)
 
 
+
+
+```
+
+Let's do some descriptive analytics.
+
+
+### Descriptive Analytics
+
+```{r}
+
 ```
 

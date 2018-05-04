@@ -59,7 +59,7 @@ Let's do some descriptive analytics.
 
 ### Descriptive Analytics
 
-```{r}
+```{r,message=FALSE,error=FALSE}
 summary(year_2015)
 
 #let's check the top 20 most happiest countries in 2015
@@ -88,7 +88,7 @@ hchart(top_20df15,hcaes(x = Country, y = Happiness.Score),type="line",name="scor
 ```
 
 
-Let's check if there is some correlatiob between the happiness scores and socio and economic variables in dataset.
+Let's check if there is some correlation between the happiness scores and socio and economic variables in dataset.
 
 ```{r}
 
@@ -108,5 +108,18 @@ The scatter plot shows the postive relation between both the variabes.
 As we can notice above , we have a significant t-value form the t-test and the p-values are also relatively small and significant from the level of significane $\alpha$ , which means that the results are significant and we can reject Null-hypothesis $H_0$. So both the variables are related.
 
 
+
+#### Box plot of Country and GDP(per capita income)
+
+
+```{r,error=FALSE,message=FALSE}
+
+hchart(top_20df15,hcaes(x = Country,y= Economy..GDP.per.Capita.),type="line",name="GDP",color="green") %>% 
+  hc_add_theme(hc_theme_elementary()) %>% 
+    hc_title(text="Top 20 countries and their GDP(per capita inccome)",align="center")  %>% 
+  hc_subtitle(text="Year : 2015",align="center")
+
+
+```
 
 

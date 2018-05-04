@@ -26,6 +26,7 @@ require(dplyr)
 require(tidyr)
 require(highcharter)
 require(ggplot2)
+require(ggcorrplot)
 
 
 
@@ -119,6 +120,44 @@ hchart(top_20df15,hcaes(x = Country,y= Economy..GDP.per.Capita.),type="line",nam
     hc_title(text="Top 20 countries and their GDP(per capita inccome)",align="center")  %>% 
   hc_subtitle(text="Year : 2015",align="center")
 
+
+```
+
+Relation between happiness score and Trust on Goverment.
+
+```{r}
+
+cor1<-cor.test(year_2015$Happiness.Score,year_2015$Trust..Government.Corruption.)
+
+
+cor.test
+
+
+#lets make a function to generate a dataframe with all variables and their relative correlation scores with other variables.
+
+cor_data <- year_2015[,4:12]
+#data frame for the correlation between the numeric variables for year 2015 
+cor_data2015<-as.data.frame(round(cor(cor_data),2))
+
+```
+
+
+```{r}
+cor_data2015
+
+ggcorrplot(cor_data2015, hc.order = TRUE, type = "lower",
+   lab = TRUE)
+
+```
+
+
+
+Let's now check the most unhappy countries.
+
+
+```{r}
+
+Most_unhappy15<-year_2015 %>% filter(Happiness.Rank > 110 )
 
 ```
 

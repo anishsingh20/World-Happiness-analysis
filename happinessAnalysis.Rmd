@@ -15,3 +15,26 @@ The aim of the project is to find out and analyze which countries are happier an
 THe datasets are donwloaded from [Kaggle](https://www.kaggle.com/unsdsn/world-happiness/data). We have datasets for the years 2015, 2016and 2017. I also want to check that how does the happiness of a country has  changes over the course of 3 years.
 
 
+
+### Reading the datasets
+
+
+```{r ,message=FALSE,error=FALSE}
+
+year_2015<-read.csv(file = "2015.csv")
+year_2016<-read.csv(file = "2016.csv")
+year_2017<-read.csv(file = "2017.csv")
+
+remove_col<-function(df,x)
+{
+  df[,x]<-NULL
+  df #returns a updated dataframe with removed column X
+  
+}
+
+
+remove_col(year_2015,X)
+
+
+```
+

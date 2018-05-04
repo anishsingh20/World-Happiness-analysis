@@ -9,3 +9,9 @@ output: html_document
 
 
 The aim of the project is to find out and analyze which countries are happier and which social and economic reasons lead to the people of a country being happy and contentful.
+
+
+
+THe datasets are donwloaded from [Kaggle](https://www.kaggle.com/unsdsn/world-happiness/data). We have datasets for the years 2015, 2016and 2017. I also want to check that how does the happiness of a country has  changes over the course of 3 years.
+
+

@@ -79,11 +79,24 @@ Now let's see the happiness score of each country.
 
 ```{r}
 
-hchart(top_20df15,hcaes(x = Country, y = Happiness.Score),type="bar",name="score",color="#") %>% 
+hchart(top_20df15,hcaes(x = Country, y = Happiness.Score),type="line",name="score",color="#E8CF1C") %>% 
   hc_add_theme(hc_theme_elementary()) %>% 
     hc_title(text="Top 20 most happy countries in 2015 and their happiness scores",align="center") 
 
 
 
 ```
+
+
+Let's check if there is some correlatiob between the happiness scores and socio and economic variables in dataset.
+
+```{r}
+
+cor.test(year_2015$Happiness.Score,year_2015$Economy..GDP.per.Capita.)
+#score of 0.78 which shows that there is a positive relation between both
+
+
+
+```
+As we can notice above , we have a significant t-value form the t-test and the p-values are also relatively small and significant from the level of significane $\alpha$ , which means that the results are significant and we can reject Null-hypothesis $H_0$. So both the variables are related.
 

@@ -7,3 +7,5 @@ output: html_document
 
 ## World Happiness Analysis
 
+
+The aim of the project is to find out and analyze which countries are happier and which social and economic reasons lead to the people of a country being happy and contentful.

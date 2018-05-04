@@ -21,6 +21,13 @@ THe datasets are donwloaded from [Kaggle](https://www.kaggle.com/unsdsn/world-ha
 
 ```{r ,message=FALSE,error=FALSE}
 
+
+require(dplyr)
+require(tidyr)
+require(highcharter)
+
+
+
 year_2015<-read.csv(file = "2015.csv")
 year_2016<-read.csv(file = "2016.csv")
 year_2017<-read.csv(file = "2017.csv")
@@ -52,6 +59,14 @@ Let's do some descriptive analytics.
 ### Descriptive Analytics
 
 ```{r}
+summary(year_2015)
+
+#let's check the top 20 most happiest countries in 2015
+
+top_20df15<-year_2015 %>% filter(Happiness.Rank <= 20)
+
+
+
 
 ```
 

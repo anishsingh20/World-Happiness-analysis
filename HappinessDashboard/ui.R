@@ -35,11 +35,12 @@ year_2017<-remove_col(year_2017,X,13)
 
 
 dashboardPage(
-  skin="black",
-  dashboardHeader(title="Kaggle Survey Data analysis") ,
+  skin="yellow",
+  dashboardHeader(title="Happpiness Analysis") ,
   
   #dashboard sidebar
   dashboardSidebar(
+    
     sidebarMenu(
       
       menuItem("Home", tabName = "tab1",icon=icon("dashboard")) ,
@@ -52,17 +53,64 @@ dashboardPage(
   
   #body of the dashboard
   dashboardBody(
+    
+    #adding custom-css
+    tags$head
+    (
+      tags$link(rel = "stylesheet", type = "text/css", href = "custom.css")
+    ),
   
       tabItems(
         
         #tab1
         tabItem(tabName = "tab1",
-                h2("WorldWide Happpiness Analysis",
+                h2("Worldwide Happpiness Analysis",
                    align="center",style="margin-top:-5px;"),
-                br())
-    )
-  )
+                br(),
+                
+                #chart for top20 most happiest countries              
+                fluidRow(
+                  
+                  h3("Top 20 most happiest countries",
+                     align="center",style="margin-top:-5px;"),
+                  br(),
+                  column(12, 
+                         
+                         box(
+                           
+                           selectInput("year",label="Select Year",
+                                       choices=c(2015,2016,2017)), 
+                           width=12
+                         ),  #end box1
+                         
+                         #box for plots
+                         box(
+                           
+                           highchartOutput("MostHappy"), 
+                           width=12 
+                         ) ,
+                         
+                         br(),
+                         
+                         h3("Top 20 most unhappy countries",
+                            align="center"),
+                         br(),
+                         
+                         box(
+                           
+                           highchartOutput("MostUnhappy"), 
+                           width=12 
+                         ) 
+                         
+                  
+                  ) #end column1
+                
+        )#end fluid-row         
+                
+      ) #end tab1
+    )#end tabItems
+  )#end dashboardBody
   
-)
+)#end dashboardPage
 
 

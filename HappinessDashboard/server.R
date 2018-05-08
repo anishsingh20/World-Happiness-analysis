@@ -31,6 +31,22 @@ year_2017<-remove_col(year_2017,X,13)
 
 
 
+cor_data1 <- year_2015[,4:12]
+#data frame for the correlation between the numeric variables for year 2015 
+
+
+cor_data2 <- year_2016[,4:13]
+cor_data2 <- cor_data2[-c(2,3)]                       
+#data frame for the correlation between the numeric variables for year 2016
+
+
+cor_data3 <- year_2017[,3:12]
+cor_data3 <- cor_data3[-c(2,3)]
+#data frame for the correlation between the numeric variables for year 2015 
+
+
+
+
 
 server<-function(input,output)
 {
@@ -61,6 +77,25 @@ server<-function(input,output)
     
     
   })  
+  
+  output$corplot <- renderHighchart({
+    
+    if(input$yearcor==2015)
+    {
+      hchart(cor(cor_data1))
+    }
+    else if(input$yearcor==2016)
+    {
+      hchart(cor(cor_data2))
+      
+    } 
+    else {
+      
+      hchart(cor(cor_data3))
+      
+    }
+    
+  })
   
   
   output$happyScore<-renderHighchart({

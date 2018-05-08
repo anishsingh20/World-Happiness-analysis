@@ -44,7 +44,8 @@ dashboardPage(
     sidebarMenu(
       
       menuItem("Home", tabName = "tab1",icon=icon("dashboard")) ,
-      menuItem("Country-wise Analysis", tabName = "tab2")
+      menuItem("Correlation", tabName = "tab2") ,
+      menuItem("Country-wise Analysis", tabName = "tab3")
       
       
     )
@@ -113,7 +114,49 @@ dashboardPage(
                 
         )#end fluid-row         
                 
-      ) #end tab1
+      ) , #end tab1
+      
+      
+    tabItem(tabName = "tab2",
+              
+        fluidRow(    
+              
+              h2("Correlation Analysis",
+                 align="center",style="margin-top:-5px;"),
+              br(),
+              
+              h4("let's check which socio and economic factors influence the Happiness scores-",align="center"),
+              
+              
+              
+          column(12,
+            
+              box(
+                
+                selectInput("yearcor",label="Select Year",
+                            choices=c(2015,2016,2017)), 
+                width=12
+              ), 
+              
+              br(),
+              
+              h3("Correlation Matrix for each year",align="center"),
+              br(),
+              
+              
+              box(
+                highchartOutput("corplot") ,
+                width=12
+              )
+              
+            ) #end column
+              
+          ) #end fluidrow     
+              
+      ) #end tab2
+      
+      
+      
     )#end tabItems
   )#end dashboardBody
   

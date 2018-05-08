@@ -35,7 +35,7 @@ year_2017<-remove_col(year_2017,X,13)
 
 
 dashboardPage(
-  skin="yellow",
+  skin="purple",
   dashboardHeader(title="Happpiness Analysis") ,
   
   #dashboard sidebar

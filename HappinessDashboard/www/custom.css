@@ -1,22 +1,22 @@
 
 /*importing google font*/
   
-  @import url('https://fonts.googleapis.com/css?family=Raleway');
+  @import url('https://fonts.googleapis.com/css?family=Skranji');
 
 a{
-  font-family:'Raleway';
+  font-family:'Skranji', cursive;
   font-weight:600;
 }
 
 
 .form-group {
   
-  font-family:'Raleway'; 
+  font-family:'Skranji', cursive;
   font-weight:600;
 }
 
 h4,h2,h3{
-  font-family:'Raleway' , underline;
+  font-family:'Skranji', cursive;
   font-weight:bold;
   
   
@@ -28,13 +28,13 @@ text-align:center;
 
 
 div > p {
-  font-family:'Raleway';
+  font-family:'Skranji', cursive;
   font-weight:lighter;
   
 }
 .main-header .logo {
   
-  font-family:'Raleway'; 
+  font-family:'Skranji', cursive;
   color: #444;
     font-size:15px;
   line-height: 44px;
@@ -44,14 +44,14 @@ div > p {
 
 #about {
 font-size:16px;
-font-family:'Raleway';
+font-family:'Skranji', cursive;
 font-weight:600;
 
 }
 
 #source {
 font-size:14px;
-font-family:'Raleway'  ;
+font-family:'Skranji', cursive;
 font-style:italic;
 font-weight:600;
 }
@@ -59,14 +59,14 @@ font-weight:600;
 #aboutMacro{
 
 font-size:16px;
-font-family:'Raleway';
+font-family:'Skranji', cursive;
 font-weight:600;
 
 }
 
 #MacroSource {
 font-size:14px;
-font-family:'Raleway'  ;
+font-family:'Skranji', cursive;
 font-style:italic;
 font-weight:600;
 

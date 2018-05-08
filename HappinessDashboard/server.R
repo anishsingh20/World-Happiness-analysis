@@ -52,12 +52,44 @@ server<-function(input,output)
         
     }
   
-    hchart(df,hcaes(x = Country, y = Happiness.Rank),type="column",name="Rank",color="#A45A8D") %>% 
+    hchart(df,hcaes(x = Country, y = Happiness.Rank),type="column",name="Rank",color="#3C8041") %>% 
       hc_add_theme(hc_theme_elementary()) %>% 
-      hc_title(text="Top 20 most happy countries",align="center") 
+      hc_title(text="Top 20 most happy countries",align="center") %>% 
+      hc_exporting(enabled=TRUE) %>%
+      hc_add_theme(hc_theme_elementary())
+      
     
     
   })  
+  
+  
+  output$happyScore<-renderHighchart({
+    
+    if(input$year==2015)
+    {
+      df<-year_2015 %>% filter(Happiness.Rank <= 20)
+    }
+    else if(input$year==2016)
+    {
+      df<-year_2016 %>% filter(Happiness.Rank <= 20)
+      
+    } 
+    else {
+      
+      df<-year_2017 %>% filter(Happiness.Rank <= 20)
+      
+    }
+    
+    
+    hchart(df,hcaes(x = Country, y = Happiness.Score),type="line",name="score",color="#15C222") %>% 
+      hc_add_theme(hc_theme_elementary()) %>% 
+      hc_title(text="Top 20 most happy countries and their happiness scores",align="center") %>% 
+      hc_exporting(enabled=TRUE) %>%
+      hc_add_theme(hc_theme_elementary())
+    
+    
+    
+  })
   
   
   output$MostUnhappy<-renderHighchart({
@@ -79,7 +111,9 @@ server<-function(input,output)
     
     hchart(df,hcaes(x = Country, y = Happiness.Rank),type="column",name="Rank",color="black") %>% 
       hc_add_theme(hc_theme_elementary()) %>% 
-      hc_title(text="Topmost unhappy countries",align="center") 
+      hc_title(text="Topmost unhappy countries",align="center") %>% 
+      hc_exporting(enabled=TRUE) %>%
+      hc_add_theme(hc_theme_elementary())
     
     
   })  

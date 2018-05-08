@@ -87,7 +87,13 @@ dashboardPage(
                          box(
                            
                            highchartOutput("MostHappy"), 
-                           width=12 
+                           width=6
+                         ) ,
+                         
+                         box(
+                           
+                           highchartOutput("happyScore"), 
+                           width=6
                          ) ,
                          
                          br(),

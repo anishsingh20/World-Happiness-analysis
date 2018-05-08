@@ -34,7 +34,54 @@ year_2017<-remove_col(year_2017,X,13)
 
 server<-function(input,output)
 {
-  output$MostHappy<-highchartOutput({
+  
+  output$MostHappy<-renderHighchart({
+    
+    if(input$year==2015)
+    {
+      df<-year_2015 %>% filter(Happiness.Rank <= 20)
+    }
+    else if(input$year==2016)
+    {
+      df<-year_2016 %>% filter(Happiness.Rank <= 20)
+      
+    } 
+    else {
+      
+      df<-year_2017 %>% filter(Happiness.Rank <= 20)
+        
+    }
+  
+    hchart(df,hcaes(x = Country, y = Happiness.Rank),type="column",name="Rank",color="#A45A8D") %>% 
+      hc_add_theme(hc_theme_elementary()) %>% 
+      hc_title(text="Top 20 most happy countries",align="center") 
+    
     
   })  
+  
+  
+  output$MostUnhappy<-renderHighchart({
+    
+    if(input$year==2015)
+    {
+      df<-year_2015 %>% filter(Happiness.Rank > 110)
+    }
+    else if(input$year==2016)
+    {
+      df<-year_2016 %>% filter(Happiness.Rank > 110)
+      
+    } 
+    else {
+      
+      df<-year_2017 %>% filter(Happiness.Rank > 110)
+      
+    }
+    
+    hchart(df,hcaes(x = Country, y = Happiness.Rank),type="column",name="Rank",color="black") %>% 
+      hc_add_theme(hc_theme_elementary()) %>% 
+      hc_title(text="Topmost unhappy countries",align="center") 
+    
+    
+  })  
+  
 }

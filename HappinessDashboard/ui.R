@@ -31,4 +31,38 @@ year_2017<-remove_col(year_2017,X,13)
 
 
 
+#UI of the app
+
+
+dashboardPage(
+  skin="black",
+  dashboardHeader(title="Kaggle Survey Data analysis") ,
+  
+  #dashboard sidebar
+  dashboardSidebar(
+    sidebarMenu(
+      
+      menuItem("Home", tabName = "tab1",icon=icon("dashboard")) ,
+      menuItem("Country-wise Analysis", tabName = "tab2")
+      
+      
+    )
+    
+  ) ,
+  
+  #body of the dashboard
+  dashboardBody(
+  
+      tabItems(
+        
+        #tab1
+        tabItem(tabName = "tab1",
+                h2("WorldWide Happpiness Analysis",
+                   align="center",style="margin-top:-5px;"),
+                br())
+    )
+  )
+  
+)
+
 

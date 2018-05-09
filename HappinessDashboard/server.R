@@ -7,7 +7,7 @@ require(scales)
 require(maps)
 require(mapproj)
 require(ggplot2)
-
+require(geojsonio)
 
 
 
@@ -59,7 +59,7 @@ world$order<-NULL
 world$subregion<-NULL
 colnames(world)<-c("long","lat","Country")
 
-world_2015 = merge(world,year_2015,by="Country",all.x = T)
+world_2015 = merge(world,year_2015,by="Country")
 
 #making world data
 

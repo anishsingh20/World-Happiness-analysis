@@ -3,6 +3,10 @@ require(shiny)
 require(dplyr)
 require(highcharter)
 require(tidyr)
+require(scales)
+require(maps)
+require(mapproj)
+require(ggplot2)
 
 
 
@@ -58,12 +62,14 @@ worldMap <- getContent("https://raw.githubusercontent.com/johan/world.geo.json/m
 # is text
 worldMap <- jsonlite::fromJSON(worldMap, simplifyVector = FALSE,geojson = TRUE)
 
+worldMap <- geojsonio::as.json(worldMap)
+class(worldMap)
 
 
+world <- map("world", plot=FALSE)
+str(world)
 
-
-
-
+#making world data
 
 
 

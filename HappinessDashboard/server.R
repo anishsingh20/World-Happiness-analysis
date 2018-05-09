@@ -51,7 +51,19 @@ cor_data3 <- cor_data3[-c(2,3)]
 
 
 
-#getting world map
+#getting world map in JSON form
+getContent <- function(url) {
+  library(httr)
+  content(GET(url))
+}
+
+world <- getContent("https://raw.githubusercontent.com/johan/world.geo.json/master/countries.geo.json")
+# is text
+world <- jsonlite::fromJSON(world, simplifyVector = FALSE)
+
+worldjson <- geojsonio::as.json(world)
+class(worldjson)
+
 
 world<-map_data("world")
 world$group<-NULL

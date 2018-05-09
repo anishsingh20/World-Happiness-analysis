@@ -53,25 +53,17 @@ cor_data3 <- cor_data3[-c(2,3)]
 
 #getting world map
 
-getContent <- function(url) {
-  library(httr)
-  content(GET(url))
-}
+world<-map_data("world")
+world$group<-NULL
+world$order<-NULL
+world$subregion<-NULL
+colnames(world)<-c("long","lat","Country")
 
-worldMap <- getContent("https://raw.githubusercontent.com/johan/world.geo.json/master/countries.geo.json")
-# is text
-worldMap <- jsonlite::fromJSON(worldMap, simplifyVector = FALSE,geojson = TRUE)
-
-worldMap <- geojsonio::as.json(worldMap)
-class(worldMap)
-
-
-world <- map("world", plot=FALSE)
-str(world)
+world_2015 = merge(world,year_2015,by="Country",all.x = T)
 
 #making world data
 
-
+hcmap(map = world)
 
 server<-function(input,output)
 {

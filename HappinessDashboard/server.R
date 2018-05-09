@@ -47,6 +47,25 @@ cor_data3 <- cor_data3[-c(2,3)]
 
 
 
+#getting world map
+
+getContent <- function(url) {
+  library(httr)
+  content(GET(url))
+}
+
+worldMap <- getContent("https://raw.githubusercontent.com/johan/world.geo.json/master/countries.geo.json")
+# is text
+worldMap <- jsonlite::fromJSON(worldMap, simplifyVector = FALSE,geojson = TRUE)
+
+
+
+
+
+
+
+
+
 
 server<-function(input,output)
 {

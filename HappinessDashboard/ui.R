@@ -153,7 +153,41 @@ dashboardPage(
               
           ) #end fluidrow     
               
-      ) #end tab2
+      ) , #end tab2
+    
+    
+    tabItem(tabName = "tab3",
+            
+            fluidRow(
+              
+                column(12 ,
+                       
+                       box(
+                         
+                         selectInput("yearcor",label="Select Year",
+                                     choices=c(2015,2016,2017)), 
+                         width=12
+                       ) ,
+                       
+                       box(
+                         highchartOutput("map") ,
+                         width=12
+                       )
+                       
+                       
+                             
+                       
+                  )#end column
+              
+              
+              
+            )#end fluid row
+            
+            
+            
+            
+            
+          )#end tab3
       
       
       
